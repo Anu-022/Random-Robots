@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import CardList from './components/CardList';
+import Search from './components/Search';
+import { RobotProvider } from './context/RobotsContext';
+import {FaHeart} from 'react-icons/fa'
 
 function App() {
+
+  const cYear = new Date().getFullYear(); 
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="header-text">Random Robots</h1>
+      <RobotProvider>
+        <Search/>
+        <CardList />
+      </RobotProvider>
+      
+      <footer className='footer'>Random Robots &copy; {cYear} | coded with <FaHeart style={{color: 'red'}} /> by Anu Olusanya WTF class of 2022/2023</footer> 
     </div>
-  );
+  )
 }
 
 export default App;
